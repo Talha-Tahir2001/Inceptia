@@ -1,0 +1,125 @@
+<header
+  class="sticky top-0 z-50 bg-transparent backdrop-blur-lg shadow-md"
+>
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <!-- Logo -->
+    <a
+      routerLink="/"
+      class="text-xl font-bold cursor-pointer py-2 px-4 rounded-full transition-colors hover:bg-violet-400/50"
+    >
+      Inceptia
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-4 items-center">
+      <a
+        routerLink="/tools"
+        class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+        ><i class="pi pi-bolt mr-1.5" style="font-size: 1rem;"></i>Tools</a
+      >
+      <a
+        routerLink="/pricing"
+        class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+        ><i class="pi pi-wallet mr-1.5" style="font-size: 1rem;"></i>Pricing</a
+      >
+      <a
+        routerLink="/about"
+        class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+        ><i class="pi pi-question-circle mr-1.5" style="font-size: 1rem;"></i>About</a
+      >
+      <a
+        routerLink="/contact"
+        class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+        ><i class="pi pi-envelope mr-1.5" style="font-size: 1rem;"></i>Contact</a
+      >
+      
+
+      <p-togglebutton
+        [onIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        [offIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        onLabel=""
+        offLabel=""
+        [style]="{
+          width: '2.5rem',
+          height: '2.5rem',
+          background: 'transparent',          
+          border: '1px black solid',
+          padding: '0',
+          minWidth: '2.5rem'
+        }"        
+        (onChange)="themeService.toggleTheme()"
+      >
+      </p-togglebutton>
+    </nav>
+
+    <!-- Mobile Toggle Button -->
+    <button
+      (click)="toggleMenu()"
+      type="button"
+      class="md:hidden text-gray-400 hover:text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav Links -->
+  @if (isMenuOpen()) {
+  <div
+    class="md:hidden px-4 pt-4 pb-6 grid grid-cols-2 gap-4 text-sm bg-surface-50 dark:bg-surface-900 shadow-inner"
+  >
+    <a
+      routerLink="/tools"
+      class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+      ><i class="pi pi-bolt mr-1.5" style="font-size: 1rem;"></i>Tools</a
+    >
+    <a
+      routerLink="/pricing"
+      class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+      ><i class="pi pi-wallet mr-1.5" style="font-size: 1rem;"></i>Pricing</a
+    >
+    <a
+      routerLink="/about"
+      class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+      ><i class="pi pi-question-circle mr-1.5" style="font-size: 1rem;"></i>About</a
+    >
+    <a
+      routerLink="/contact"
+      class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
+      ><i class="pi pi-envelope mr-1.5" style="font-size: 1rem;"></i>Contact</a
+    
+    >
+
+    <div class="col-span-3 flex justify-center pt-2">
+      <p-togglebutton
+        [onIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        [offIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        onLabel=""
+        offLabel=""
+        [style]="{
+          width: '2.5rem',
+          height: '2.5rem',
+          background: 'transparent',          
+          border: '1px black solid',
+          padding: '0',
+          minWidth: '2.5rem'
+        }"        
+        (onChange)="themeService.toggleTheme()"
+      >
+      </p-togglebutton>
+    </div>
+  </div>
+  }
+</header>
