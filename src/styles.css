@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+@keyframes borderRotate {
+  0% {
+    --border-angle: 0turn;
+  }
+  100% {
+    --border-angle: 1turn;
+  }
+}
+
+.animate-border {
+  animation: borderRotate 4s linear infinite;
+}
