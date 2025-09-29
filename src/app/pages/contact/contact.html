@@ -1,0 +1,72 @@
+<section class="py-20 min-h-screen">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2
+      class="text-4xl font-bold text-center mb-10"
+    >
+      Contact Us
+    </h2>
+
+    <p-card
+      class="p-8 shadow-xl rounded-2xl border border-gray-200 dark:border-surface-700"
+    >
+     <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        <!-- Name -->
+        <div class="col-span-1">
+          <p-floatlabel variant="on">
+            <input
+              pInputText
+              id="name"
+              formControlName="name"
+              autocomplete="off"
+              class="!w-full rounded-lg bg-surface-900 text-surface-100 border border-surface-600 px-6 py-3"
+            />
+            <label for="name">Your Name</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- Email -->
+        <div class="col-span-1">
+          <p-floatlabel variant="on">
+            <input
+              pInputText
+              type="email"
+              id="email"
+              formControlName="email"
+              autocomplete="off"
+              class="w-full rounded-lg bg-surface-900 text-surface-100 border border-surface-600 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
+            <label for="email">Your Email</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- Message -->
+        <div class="col-span-1 md:col-span-2">
+          <p-floatlabel variant="in">
+            <textarea
+              pTextarea
+              id="message"
+              rows="5"
+              formControlName="message"
+              class="w-full rounded-lg bg-surface-900 text-surface-100 border border-surface-600 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 resize-none"
+            ></textarea>
+            <label for="message">Your Message</label>
+          </p-floatlabel>
+        </div>
+ 
+        <!-- Submit Button -->
+        <div class="col-span-1 md:col-span-2 flex justify-center">
+          <p-button
+            type="submit"
+            label="Send Message"
+            [disabled]="contactForm.invalid"
+            class=""
+          ></p-button>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</section>
