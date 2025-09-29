@@ -1,9 +1,12 @@
 <header
+  aria-label="navigation"
   class="sticky top-0 z-50 bg-transparent backdrop-blur-lg shadow-md"
 >
   <div class="container mx-auto flex justify-between items-center p-4">
     <!-- Logo -->
     <a
+      title="Inceptia"
+      aria-label="Inceptia"
       routerLink="/"
       class="text-xl font-bold cursor-pointer py-2 px-4 rounded-full transition-colors hover:bg-violet-400/50"
     >
@@ -13,28 +16,38 @@
     <!-- Desktop Nav -->
     <nav class="hidden md:flex space-x-4 items-center">
       <a
+        title="Tools"
+        aria-label="Tools"
         routerLink="/tools"
         class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-        ><i class="pi pi-bolt mr-1.5" style="font-size: 1rem;"></i>Tools</a
+        ><i class="pi pi-bolt mr-1.5" style="font-size: 1rem"></i>Tools</a
       >
       <a
+        title="Pricing"
+        aria-label="Pricing"
         routerLink="/pricing"
         class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-        ><i class="pi pi-wallet mr-1.5" style="font-size: 1rem;"></i>Pricing</a
+        ><i class="pi pi-wallet mr-1.5" style="font-size: 1rem"></i>Pricing</a
       >
       <a
+        title="About"
+        aria-label="About"
         routerLink="/about"
         class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-        ><i class="pi pi-question-circle mr-1.5" style="font-size: 1rem;"></i>About</a
+        ><i class="pi pi-question-circle mr-1.5" style="font-size: 1rem"></i
+        >About</a
       >
       <a
+        title="Contact"
+        aria-label="Contact"
         routerLink="/contact"
         class="cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-        ><i class="pi pi-envelope mr-1.5" style="font-size: 1rem;"></i>Contact</a
+        ><i class="pi pi-envelope mr-1.5" style="font-size: 1rem"></i>Contact</a
       >
-      
 
       <p-togglebutton
+        title="Toggle Theme"
+        aria-label="Toggle Theme"
         [onIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
         [offIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
         onLabel=""
@@ -42,11 +55,11 @@
         [style]="{
           width: '2.5rem',
           height: '2.5rem',
-          background: 'transparent',          
+          background: 'transparent',
           border: '1px black solid',
           padding: '0',
           minWidth: '2.5rem'
-        }"        
+        }"
         (onChange)="themeService.toggleTheme()"
       >
       </p-togglebutton>
@@ -54,8 +67,13 @@
 
     <!-- Mobile Toggle Button -->
     <button
+      title="Toggle Menu"
+      aria-label="Toggle Menu"
       (click)="toggleMenu()"
       type="button"
+      aria-label="Open main menu"
+      aria-controls="mobile-menu"
+      [attr.aria-expanded]="isMenuOpen()"
       class="md:hidden text-gray-400 hover:text-white"
     >
       <svg
@@ -78,32 +96,45 @@
   <!-- Mobile Nav Links -->
   @if (isMenuOpen()) {
   <div
+    role="navigation"
+    aria-label="Mobile navigation"
+    id="mobile-menu"
     class="md:hidden px-4 pt-4 pb-6 grid grid-cols-2 gap-4 text-sm bg-surface-50 dark:bg-surface-900 shadow-inner"
   >
     <a
+      title="Tools"
+      aria-label="Tools"
       routerLink="/tools"
       class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-      ><i class="pi pi-bolt mr-1.5" style="font-size: 1rem;"></i>Tools</a
+      ><i class="pi pi-bolt mr-1.5" style="font-size: 1rem"></i>Tools</a
     >
     <a
+      title="Pricing"
+      aria-label="Pricing"
       routerLink="/pricing"
       class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-      ><i class="pi pi-wallet mr-1.5" style="font-size: 1rem;"></i>Pricing</a
+      ><i class="pi pi-wallet mr-1.5" style="font-size: 1rem"></i>Pricing</a
     >
     <a
+      title="About"
+      aria-label="About"
       routerLink="/about"
       class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-      ><i class="pi pi-question-circle mr-1.5" style="font-size: 1rem;"></i>About</a
+      ><i class="pi pi-question-circle mr-1.5" style="font-size: 1rem"></i
+      >About</a
     >
     <a
+      title="Contact"
+      aria-label="Contact"
       routerLink="/contact"
       class="block cursor-pointer hover:bg-violet-400 py-2 px-4 rounded-lg transition-colors"
-      ><i class="pi pi-envelope mr-1.5" style="font-size: 1rem;"></i>Contact</a
-    
+      ><i class="pi pi-envelope mr-1.5" style="font-size: 1rem"></i>Contact</a
     >
 
     <div class="col-span-3 flex justify-center pt-2">
       <p-togglebutton
+        title="Toggle Theme"
+        aria-label="Toggle Theme"
         [onIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
         [offIcon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
         onLabel=""
@@ -111,11 +142,11 @@
         [style]="{
           width: '2.5rem',
           height: '2.5rem',
-          background: 'transparent',          
+          background: 'transparent',
           border: '1px black solid',
           padding: '0',
           minWidth: '2.5rem'
-        }"        
+        }"
         (onChange)="themeService.toggleTheme()"
       >
       </p-togglebutton>
