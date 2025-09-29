@@ -1,0 +1,59 @@
+<section class="py-20" aria-labelledby="founders-carousel-heading">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2
+      class="sr-only"
+      id="founders-carousel-heading"
+      class="text-3xl font-bold text-center mb-10"
+    >
+      Loved by Founders
+    </h2>
+  </div>
+
+  <p-carousel
+    aria-labelledby="founders-carousel-heading"
+    [value]="products()"
+    [numVisible]="3"
+    [numScroll]="1"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    [showIndicators]="true"
+    [showNavigators]="true"
+    ariaLabel="Customer testimonials carousel"
+    role="region"
+    aria-roledescription="carousel"
+  >
+    <ng-template let-product let-i="index" pTemplate="item">
+          <article 
+            class="border border-surface rounded-border m-2 p-4 text-center shadow-lg"
+            role="group"
+            [attr.aria-labelledby]="'testimonial-' + i + '-name'"
+            [attr.aria-describedby]="'testimonial-' + i + '-quote'"
+          >
+            <h3 
+              [id]="'testimonial-' + i + '-name'" 
+              class="mb-2 font-semibold text-xl"
+            >
+              {{ product.name }}
+            </h3>
+            
+            <blockquote 
+              [id]="'testimonial-' + i + '-quote'"
+              class="mb-4 italic text-sm"
+            >
+              "{{ product.description }}"
+            </blockquote>
+            
+            <!-- Accessible Rating Component -->
+            <div class="rating-container">
+              <span class="sr-only">Rating: {{ product.rating }} out of 5 stars</span>
+              <p-rating 
+                [readonly]="true" 
+                [(ngModel)]="product.rating"
+                [attr.aria-label]="product.rating + ' out of 5 stars'"
+                [attr.tabindex]="-1"
+              ></p-rating>
+            </div>
+          </article>
+        </ng-template>
+  </p-carousel>
+</section>
